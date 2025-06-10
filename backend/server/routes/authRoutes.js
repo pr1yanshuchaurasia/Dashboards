@@ -13,3 +13,7 @@ router.get("/dashboard", authMiddleware, (req, res) => {
 
 router.get("/users", authController.getUsers);
 module.exports = router;
+
+router.get("/api/protected", authMiddleware, (req, res) => {
+  res.json({ message: "Access granted!", user: req.user });
+});

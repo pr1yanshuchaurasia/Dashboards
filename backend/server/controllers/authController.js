@@ -29,6 +29,7 @@ exports.register = (req, res) => {
   });
 };
 
+
 // Login User (with iat and exp timestamps)
 exports.login = (req, res) => {
   const { email, password } = req.body;
@@ -41,16 +42,14 @@ exports.login = (req, res) => {
     }
 
     const payload = { id: results[0].id };
-    const expiresIn = "1h";
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn });
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-    const currentTimestamp = Math.floor(Date.now() / 1000);
-    const expirationTimestamp = currentTimestamp + expiresIn;
+    const decoded = jwt.decode(token); // decode to get iat and exp
 
     res.status(200).json({
       token,
-      iat: new Date(currentTimestamp * 1000).toLocaleString(), // issued at (readable)
-      exp: new Date(expirationTimestamp * 1000).toLocaleString(), // expires at (readable)
+      iat: new Date(decoded.iat * 1000).toLocaleString(), // Issued At (readable)
+      exp: new Date(decoded.exp * 1000).toLocaleString(), // Expires At (readable)
       user: {
         name: results[0].name,
         email: results[0].email,
