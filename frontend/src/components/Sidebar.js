@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Toggle Button - always visible */}
+
       <div
         className="position-fixed top-0 start-0 p-3 bg-white shadow"
         style={{ zIndex: 1100 }}
@@ -19,7 +19,6 @@ const Sidebar = () => {
         <FaBars size={20} className="text-dark" role="button" onClick={toggleSidebar} />
       </div>
 
-      {/* Backdrop - only visible when open (for both mobile & desktop) */}
       {isOpen && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
