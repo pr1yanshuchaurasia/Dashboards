@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { getDashboard } from "../services/api";
+import "./Dashboard.css"; // Optional: for custom media styles
 
 const Dashboard = () => {
   const [services, setServices] = useState([]);
@@ -25,11 +26,14 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-column flex-md-row">
       <Sidebar />
 
-      <div className="p-4 flex-grow-1" style={{ marginLeft: "250px" }}>
-        <h2>Welcome to the Car Dashboard</h2>
+      <main
+        className="p-4 flex-grow-1 content-area"
+        style={{ marginTop: "60px", marginLeft: "0" }}
+      >
+        <h2 className="mb-4">Welcome to the Car Dashboard</h2>
 
         {loading ? (
           <p>Loading services...</p>
@@ -47,7 +51,7 @@ const Dashboard = () => {
         ) : (
           <p>No services available at the moment.</p>
         )}
-      </div>
+      </main>
     </div>
   );
 };

@@ -4,6 +4,14 @@
   transition: transform 0.3s ease-in-out;
 }
 
+
+/* Sidebar base styles */
+.sidebar {
+  max-width: 250px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Slide open/close */
 .sidebar-open {
   transform: translateX(0);
 }
@@ -11,3 +19,21 @@
 .sidebar-closed {
   transform: translateX(-100%);
 }
+
+/* Responsive adjustments for desktop (min-width: 768px) */
+@media (min-width: 768px) {
+  .sidebar {
+    /* Stay fixed left and don't cover content on larger screens */
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    background-color: #343a40;
+  }
+
+}
+
+
+
+
