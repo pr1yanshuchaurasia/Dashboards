@@ -41,7 +41,7 @@ const carData = [
   {
     id: 7,
     name: "Mahindra Thar",
-    image: require("../images/elevate.webp"),
+    image: require("../images/thar.avif"),
     details: "Off-road beast with rugged looks.",
   },
   {
