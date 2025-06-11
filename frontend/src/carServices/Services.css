@@ -1,0 +1,29 @@
+/* src/pages/Services.css */
+
+.services-wrapper {
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+.service-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+}
+
+.service-img {
+  height: 200px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.service-card:hover .service-img {
+  filter: grayscale(0%);
+}
