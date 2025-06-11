@@ -82,25 +82,26 @@ const CarModels = () => {
   const closeOverlay = () => setSelectedCar(null);
 
   return (
-    <div className="container py-5">
-      <h2 className="mb-5 text-center display-6 fw-semibold text-primary">Our Car Models</h2>
+    <div className="container py">
+     <h2 className="mb-5 text-center display-5 fw-bold" style={{color:"#0FA4AF"}}>Explore Our Car Models</h2>
+
 
       <div className="row g-4">
         {carData.map((car) => (
           <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={car.id}>
             <div
-              className="card h-100 shadow-sm car-card"
+              className="card h-100 border-0 shadow-lg car-card hover-scale"
               role="button"
               onClick={() => setSelectedCar(car)}
             >
               <img
                 src={car.image}
-                className="card-img-top"
+                className="card-img-top rounded-top"
                 alt={car.name}
                 style={{ height: "200px", objectFit: "cover" }}
               />
-              <div className="card-body">
-                <h5 className="card-title text-center fw-semibold text-dark">{car.name}</h5>
+              <div className="card-body text-center">
+                <h5 className="card-title fw-semibold"style={{color:"#0FA4AF"}}>{car.name}</h5>
               </div>
             </div>
           </div>
@@ -109,16 +110,16 @@ const CarModels = () => {
 
       {selectedCar && (
         <div className="overlay" onClick={closeOverlay}>
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={closeOverlay}>&times;</button>
+          <div className="overlay-content shadow-lg bg-white rounded p-4" onClick={(e) => e.stopPropagation()}>
+            <button className="btn-close float-end"style={{ filter: "invert(0)" }} onClick={closeOverlay}></button>
             <h3 className="text-center mb-3 fw-bold text-dark">{selectedCar.name}</h3>
             <img
               src={selectedCar.image}
               alt={selectedCar.name}
-              className="img-fluid rounded"
+              className="img-fluid rounded mb-3 d-block mx-auto"
               style={{ maxHeight: "300px", objectFit: "contain" }}
             />
-            <p className="mt-3 text-center fs-5 text-muted">{selectedCar.details}</p>
+            <p className="text-center fs-5 text-secondary">{selectedCar.details}</p>
           </div>
         </div>
       )}
@@ -127,3 +128,4 @@ const CarModels = () => {
 };
 
 export default CarModels;
+
