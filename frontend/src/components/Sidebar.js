@@ -11,12 +11,16 @@ const Sidebar = () => {
 
   return (
     <>
-
       <div
         className="position-fixed top-0 start-0 p-3 bg-white shadow"
         style={{ zIndex: 1100 }}
       >
-        <FaBars size={20} className="text-dark" role="button" onClick={toggleSidebar} />
+        <FaBars
+          size={20}
+          className="text-dark"
+          role="button"
+          onClick={toggleSidebar}
+        />
       </div>
 
       {isOpen && (
@@ -42,12 +46,20 @@ const Sidebar = () => {
         <h4 className="ms-5 mb-4">Car Dashboard</h4>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/dashboard" onClick={closeSidebar}>
+            <Link
+              className="nav-link text-white"
+              to="/dashboard"
+              onClick={closeSidebar}
+            >
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="#" onClick={closeSidebar}>
+            <Link
+              className="nav-link text-white"
+              to="/car-models"
+              onClick={closeSidebar}
+            >
               Car Models
             </Link>
           </li>

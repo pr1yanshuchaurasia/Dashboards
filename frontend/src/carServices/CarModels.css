@@ -1,0 +1,11 @@
+.car-card {
+  transition: transform 0.2s ease;
+}
+
+.car-card:hover {
+  transform: scale(1.03);
+}
+
+.car-detail img {
+  max-width: 100%;
+}
