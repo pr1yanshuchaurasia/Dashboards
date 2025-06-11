@@ -22,7 +22,7 @@
 
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 // Pages
 import Register from "./pages/Register";
@@ -30,19 +30,21 @@ import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import CarModels from "./carServices/CarModels";
 
-
 // Layout
 import Sidebar from "./components/Sidebar";
 
+const AppContent = () => {
+  const location = useLocation();
+  const isAuthenticated = localStorage.getItem("token");
 
-function App() {
-  const isAuthenticated = localStorage.getItem("token"); // Simplified auth check
+  // These routes should NOT display the sidebar or margin
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
   return (
-    <Router>
-      {isAuthenticated && <Sidebar />}
+    <>
+      {!isAuthPage && isAuthenticated && <Sidebar />}
 
-      <div className="content" style={{ marginLeft: isAuthenticated ? "250px" : "0" }}>
+      <div className="content" style={{ marginLeft: !isAuthPage && isAuthenticated ? "250px" : "0" }}>
         <Routes>
           {/* Redirect root to register */}
           <Route path="/" element={<Navigate to="/register" />} />
@@ -59,10 +61,21 @@ function App() {
             </>
           )}
 
-          {/* Fallback route: redirect unknown paths */}
-          <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />} />
+          {/* Fallback route */}
+          <Route
+            path="*"
+            element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />}
+          />
         </Routes>
       </div>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }
