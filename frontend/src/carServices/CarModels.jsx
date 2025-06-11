@@ -82,8 +82,8 @@ const CarModels = () => {
   const closeOverlay = () => setSelectedCar(null);
 
   return (
-    <div className="container py-4">
-      <h2 className="mb-4 text-center">Car Models</h2>
+    <div className="container py-5">
+      <h2 className="mb-5 text-center display-6 fw-semibold text-primary">Our Car Models</h2>
 
       <div className="row g-4">
         {carData.map((car) => (
@@ -100,7 +100,7 @@ const CarModels = () => {
                 style={{ height: "200px", objectFit: "cover" }}
               />
               <div className="card-body">
-                <h5 className="card-title text-center">{car.name}</h5>
+                <h5 className="card-title text-center fw-semibold text-dark">{car.name}</h5>
               </div>
             </div>
           </div>
@@ -111,14 +111,14 @@ const CarModels = () => {
         <div className="overlay" onClick={closeOverlay}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={closeOverlay}>&times;</button>
-            <h3 className="text-center mb-3">{selectedCar.name}</h3>
+            <h3 className="text-center mb-3 fw-bold text-dark">{selectedCar.name}</h3>
             <img
               src={selectedCar.image}
               alt={selectedCar.name}
               className="img-fluid rounded"
               style={{ maxHeight: "300px", objectFit: "contain" }}
             />
-            <p className="mt-3 text-center">{selectedCar.details}</p>
+            <p className="mt-3 text-center fs-5 text-muted">{selectedCar.details}</p>
           </div>
         </div>
       )}
