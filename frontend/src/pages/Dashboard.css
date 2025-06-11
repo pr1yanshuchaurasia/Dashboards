@@ -1,27 +1,32 @@
-/* Adjust content margin for large screens */
-@media (min-width: 768px) {
-  .content-area {
-    margin-left: 250px; /* Space for the sidebar */
-    margin-top: 0;
-  }
+/* Wrapper to apply background to whole page */
+.dashboard-wrapper {
+  background-color: white;
+  min-height: 100vh;
 }
 
-/* On small screens, no left margin since sidebar overlays */
-@media (max-width: 767.98px) {
-  .content-area {
-    margin-left: 0;
-  }
-}
-/* Dashboard.css */
+/* Main content area */
 .content-area {
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
-  min-height: 100vh; /* ensures full height on short pages */
+  min-height: 100vh;
   padding: 2rem;
 }
 
+/* List styling */
 .list-group-item {
   background-color: white;
   color: black;
 }
 
+/* Adjust margins based on screen size */
+@media (min-width: 768px) {
+  .content-area {
+    margin-left: 250px; /* account for sidebar */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .content-area {
+    margin-left: 0;
+  }
+}

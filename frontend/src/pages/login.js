@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import '../index.css';
 
 function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -37,7 +38,9 @@ function Login() {
     }
   };
 
-  return (
+  
+    return (
+  <div className="login-page-wrapper">
     <div className="container d-flex align-items-center vh-100">
       <form className="mx-auto w-50" onSubmit={handleLogin}>
         <h2 className="mb-4 text-center">Login</h2>
@@ -61,7 +64,10 @@ function Login() {
         </p>
       </form>
     </div>
-  );
+  </div>
+);
+
+   
 }
 
 export default Login;

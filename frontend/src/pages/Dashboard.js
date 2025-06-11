@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { getDashboard } from "../services/api";
-import "./Dashboard.css"; // Optional: for custom media styles
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const [services, setServices] = useState([]);
@@ -26,13 +26,10 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="d-flex flex-column flex-md-row">
+    <div className="dashboard-wrapper d-flex flex-column flex-md-row">
       <Sidebar />
 
-      <main
-        className="p-4 flex-grow-1 content-area"
-        
-      >
+      <main className="p-4 flex-grow-1 content-area">
         <h2 className="mb-4">Welcome to the Car Dashboard</h2>
 
         {loading ? (

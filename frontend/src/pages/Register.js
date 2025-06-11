@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import '../index.css';
 
 function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -41,8 +42,8 @@ function Register() {
       alert('Registration failed. Email might already be registered.');
     }
   };
-
-  return (
+return (
+  <div className="register-page-wrapper">
     <div className="container d-flex align-items-center vh-100">
       <form className="mx-auto w-50" onSubmit={handleSubmit}>
         <h2 className="mb-4 text-center">Register</h2>
@@ -74,7 +75,10 @@ function Register() {
         </p>
       </form>
     </div>
-  );
+  </div>
+);
+
+ 
 }
 
 export default Register;
