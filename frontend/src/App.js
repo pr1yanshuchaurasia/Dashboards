@@ -1,34 +1,18 @@
-
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-// import Register from "./pages/Register";
-// import Login from "./pages/login";
-// import Dashboard from "./pages/Dashboard";
-
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Navigate to="/register" />} />
-//         <Route path="/register" element={<Register />} />
-//         <Route path="/login" element={<Login />} />
-//         <Route path="/dashboard" element={<Dashboard />} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 
 // Pages
 import Register from "./pages/Register";
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import CarModels from "./carServices/CarModels";
+import Services from "./carServices/Services"; // ✅ New import
 
 // Layout
 import Sidebar from "./components/Sidebar";
@@ -37,14 +21,22 @@ const AppContent = () => {
   const location = useLocation();
   const isAuthenticated = localStorage.getItem("token");
 
-  // These routes should NOT display the sidebar or margin
-  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <>
+      {/* Show Sidebar only for authenticated routes except auth pages */}
       {!isAuthPage && isAuthenticated && <Sidebar />}
 
-      <div className="content" style={{ marginLeft: !isAuthPage && isAuthenticated ? "250px" : "0" }}>
+      <div
+        className="content"
+        style={{
+          marginLeft: !isAuthPage && isAuthenticated ? "250px" : "0",
+          backgroundColor: "#121212", // Unified dark gray background
+          minHeight: "100vh",
+        }}
+      >
         <Routes>
           {/* Redirect root to register */}
           <Route path="/" element={<Navigate to="/register" />} />
@@ -58,10 +50,11 @@ const AppContent = () => {
             <>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/car-models" element={<CarModels />} />
+              <Route path="/services" element={<Services />} /> {/* ✅ New route */}
             </>
           )}
 
-          {/* Fallback route */}
+          {/* Fallback */}
           <Route
             path="*"
             element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />}

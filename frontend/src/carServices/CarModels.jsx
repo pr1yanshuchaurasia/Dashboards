@@ -83,7 +83,7 @@ const CarModels = () => {
 
   return (
     <div className="container py">
-     <h2 className="mb-5 text-center display-5 fw-bold" style={{color:"#0FA4AF"}}>Explore Our Car Models</h2>
+     <h2 className="mb-5 display-5 text-center fw-bold" style={{color:"#0FA4AF"}}>Explore Our Car Models</h2>
 
 
       <div className="row g-4">

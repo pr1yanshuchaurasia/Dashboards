@@ -64,7 +64,11 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="#" onClick={closeSidebar}>
+            <Link
+              className="nav-link text-white"
+              to="/services"
+              onClick={closeSidebar}
+            >
               Services
             </Link>
           </li>

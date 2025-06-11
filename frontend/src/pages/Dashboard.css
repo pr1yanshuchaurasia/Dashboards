@@ -12,3 +12,16 @@
     margin-left: 0;
   }
 }
+/* Dashboard.css */
+.content-area {
+  background-color: whitesmoke;
+  color: black;
+  min-height: 100vh; /* ensures full height on short pages */
+  padding: 2rem;
+}
+
+.list-group-item {
+  background-color: white;
+  color: black;
+}
+

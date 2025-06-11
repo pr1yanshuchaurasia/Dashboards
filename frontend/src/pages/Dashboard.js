@@ -31,7 +31,7 @@ const Dashboard = () => {
 
       <main
         className="p-4 flex-grow-1 content-area"
-        style={{ marginTop: "60px", marginLeft: "0" }}
+        
       >
         <h2 className="mb-4">Welcome to the Car Dashboard</h2>
 
