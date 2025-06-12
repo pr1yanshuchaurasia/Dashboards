@@ -7,14 +7,18 @@
   flex-direction: row;
   overflow: hidden;
 }
-
-.content-area {
+.dashboard-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
   background: transparent;
-  color:white;
-  min-height: 100vh;
-  padding: 2rem;
 }
-
+.content-area {
+  overflow-y: auto;
+  flex-grow: 1;
+}
 .list-group-item {
   background-color: white;
   color: black;
@@ -32,4 +36,49 @@
   .content-area {
     margin-left: 0;
   }
+}
+.dashboard-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #fff;
+  text-align: left;
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #555,
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+.dashboard-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #f0f0f0;
+  text-shadow:
+    1px 1px 0 #222,
+    2px 2px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+}
+.explore-fixed-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.explore-now-btn {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  
+}
+
+.explore-now-btn:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
 }
