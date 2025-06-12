@@ -1,22 +1,25 @@
-/* Wrapper to apply background to whole page */
 .dashboard-wrapper {
-  background-color: white;
+  background: url('../images/xuv9e.avif') no-repeat center center;
+  background-size: cover;
   min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 }
 
-/* Main content area */
 .content-area {
-  background-color: white;
-  color: black;
+  background: transparent;
+  color:white;
   min-height: 100vh;
   padding: 2rem;
 }
 
-/* List styling */
 .list-group-item {
   background-color: white;
   color: black;
 }
+
 
 /* Adjust margins based on screen size */
 @media (min-width: 768px) {

@@ -9,6 +9,8 @@
 .sidebar {
   max-width: 250px;
   transition: transform 0.3s ease-in-out;
+  background-color: transparent !important;
+  box-shadow: none;
 }
 
 
@@ -32,7 +34,3 @@
   }
 
 }
-
-
-
-
